@@ -1,4 +1,4 @@
-
+const database = require('../database')
 
 function Jobs() {
  
@@ -78,3 +78,5 @@ function Jobs() {
 
   return { read, readOne, create, update, remove }
 }
+
+module.exports = Jobs
