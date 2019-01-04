@@ -16,23 +16,31 @@ function Jobs() {
   }
   
   function create(body) {
-    if (body.subject === undefined) {
-      throw new Error('A subject is required')
+    if (!body.subject) {
+      throw new Error('A subject is required.')
     }
-    if (body.description === undefined) {
-      throw new Error('A description is required')
+    if (!body.description) {
+      throw new Error('A description is required.')
     }
-    if (body.country === undefined) {
-      throw new Error('A country is required')
+    if (!body.country) {
+      throw new Error('A country is required.')
     }
-    if (body.city === undefined) {
-      throw new Error('A city is required')
+    if (!body.city) {
+      throw new Error('A city is required.')
+    }
+    if (!body.job_start) {
+      throw new Error('A contract start date is required.')
+    }
+    if (!body.job_end) {
+      throw new Error('A contract end date is required.')
     }
     const values = {
       subject: body.subject,
       description: body.description,
       country: body.country,
       city: body.city,
+      job_start: body.job_start,
+      job_end: body.job_end,
       salary: body.salary || null,
       date_created: new Date(),
       date_updated: new Date()
@@ -42,24 +50,31 @@ function Jobs() {
   }
 
   function update(body, id) {
-    if (body.subject === undefined) {
-      throw new Error('A subject is required')
+    if (!body.subject) {
+      throw new Error('A subject is required.')
     }
-    if (body.description === undefined) {
-      throw new Error('A description is required')
+    if (!body.description) {
+      throw new Error('A description is required.')
     }
-    if (body.country === undefined) {
-      throw new Error('A country is required')
+    if (!body.country) {
+      throw new Error('A country is required.')
     }
-    if (body.city === undefined) {
-      throw new Error('A city is required')
+    if (!body.city) {
+      throw new Error('A city is required.')
     }
-
+    if (!body.job_start) {
+      throw new Error('A contract start date is required.')
+    }
+    if (!body.job_end) {
+      throw new Error('A contract end date is required.')
+    }
     const values = {
       subject: body.subject,
       description: body.description,
       country: body.country,
       city: body.city,
+      job_start: body.job_start,
+      job_end: body.job_end,
       salary: body.salary || null,
       date_updated: new Date(),
       id: parseInt(id)

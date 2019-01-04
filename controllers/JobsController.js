@@ -2,8 +2,9 @@ const Jobs = require('../models/Jobs')
 
 function JobsController() {
 
-  async function read(ctx, next) {
+  async function read(ctx) {
     try {
+      // await validateUser(ctx.cookies.get('token'))
       const model = Jobs()
       const data = await model.read()
       ctx.response.body = {
@@ -18,7 +19,7 @@ function JobsController() {
     }
   }
 
-  async function readOne(ctx, next) {
+  async function readOne(ctx) {
     try {
       const model = Jobs()
       const data = await model.readOne(ctx.params.id)
@@ -34,13 +35,13 @@ function JobsController() {
     }
   }
 
-  async function create(ctx, next) {
+  async function create(ctx) {
     try {
       const model = Jobs()
       const data = await model.create(ctx.request.body)
       ctx.response.body = {
         status: 201,
-        data
+        message: 'Item successfully created.'
       }
     } catch (error) {
       ctx.response.body = {
@@ -50,7 +51,7 @@ function JobsController() {
     }
   }
 
-  async function update(ctx, next) {
+  async function update(ctx) {
     try {
       const model = Jobs()
       const data = await model.update(
@@ -59,7 +60,7 @@ function JobsController() {
       )
       ctx.response.body = {
         status: 201,
-        data
+        message: 'Item successfully updated.'
       }
     } catch (error) {
       ctx.response.body = {
@@ -69,13 +70,13 @@ function JobsController() {
     }
   }
 
-  async function remove(ctx, next) {
+  async function remove(ctx) {
     try {
       const model = Jobs()
       const data = await model.remove(ctx.params.id)
       ctx.response.body = {
         status: 200,
-        data
+        message: 'Item successfully deleted.'
       }
     } catch (error) {
       ctx.response.body = {
