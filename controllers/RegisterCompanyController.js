@@ -1,4 +1,4 @@
-const Jobs = require('../models/Jobs')
+const RegisterCompany = require('../models/RegisterCompany')
 
 function RegisterCompanyController() {
 

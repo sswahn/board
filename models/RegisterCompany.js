@@ -28,6 +28,7 @@ function RegisterCompany() {
       date_created: new Date(),
       date_updated: new Date()
     }
+    console.log(values)
     const sql = 'INSERT INTO companies (company, email, password, logo, is_verified, activation, date_created, date_updated) VALUES (${company}, ${email}, ${password}, ${logo}, ${is_verified}, ${activation}, ${date_created}, ${date_updated})'
     return database.none(sql, values)
   }

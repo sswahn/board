@@ -38,7 +38,7 @@ function JobsController() {
   async function create(ctx) {
     try {
       const model = Jobs()
-      const data = await model.create(ctx.request.body)
+      await model.create(ctx.request.body)
       ctx.response.body = {
         status: 201,
         message: 'Item successfully created.'
@@ -54,10 +54,7 @@ function JobsController() {
   async function update(ctx) {
     try {
       const model = Jobs()
-      const data = await model.update(
-        ctx.request.body,
-        ctx.params.id
-      )
+      await model.update(ctx.request.body, ctx.params.id)
       ctx.response.body = {
         status: 201,
         message: 'Item successfully updated.'
@@ -73,7 +70,7 @@ function JobsController() {
   async function remove(ctx) {
     try {
       const model = Jobs()
-      const data = await model.remove(ctx.params.id)
+      await model.remove(ctx.params.id)
       ctx.response.body = {
         status: 200,
         message: 'Item successfully deleted.'
