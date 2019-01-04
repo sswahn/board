@@ -1,4 +1,5 @@
 const RegisterCompany = require('../models/RegisterCompany')
+const Mail = require('../utilities/MailUtility')
 
 function RegisterCompanyController() {
 

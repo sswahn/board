@@ -75,7 +75,8 @@ function RegisterCompany() {
   }
 
   function setAsVerified(id) {
-    const sql = 'UPDATE companies SET is_verified = true, activation = null WHERE id = $1'
+    console.log(id)
+    const sql = 'UPDATE companies SET is_verified = true, activation = null WHERE id = ${id}'
     return database.none(sql, id)
   }
 

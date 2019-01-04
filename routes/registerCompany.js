@@ -6,6 +6,6 @@ const controller = RegisterCompanyController()
 
 router.post('/api/v1/register-company', controller.create)
 router.put('/api/v1/register-company/:id', controller.update)
-router.put('/api/v1/register-company/:token', controller.activate)
+router.put('/api/v1/activate/:token', controller.activate)
 
 module.exports = router
